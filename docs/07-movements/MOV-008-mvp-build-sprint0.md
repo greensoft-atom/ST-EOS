@@ -133,7 +133,7 @@ EPIC-05 Document Creation       (Sprint 4)     34 SP
 EPIC-06 Department Assistant    (Sprint 5)     21 SP
 EPIC-07 Hardening & Pilot Prep  (Sprint 6)     21 SP
 ────────────────────────────────────────────────────
-Total estimated:                          ~199 SP
+Total estimated:                          ~219 SP
 Velocity assumption (team of 4):          ~20 SP/sprint
 ```
 

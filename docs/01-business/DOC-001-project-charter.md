@@ -122,9 +122,11 @@ See [Product Roadmap](../02-product/DOC-102-product-roadmap.md).
 | Phase | Duration | Deliverable |
 |-------|----------|-------------|
 | Phase 0 — Discovery | 8 weeks | PoC, requirements, architecture |
-| Phase 1 — MVP | 14 weeks | Pilot-ready platform |
-| Phase 2 — Pilot | 8 weeks | Measured deployment |
-| Phase 3 — Expansion | 16+ weeks | Additional modules |
+| Phase 1 — MVP Build | 14 weeks | Pilot-ready platform |
+| Pilot — Deployment & Measurement | 8 weeks | Measured deployment at MSTI |
+| Phase 2 — Expansion | 26 weeks | Additional modules |
+
+**Canonical phase naming:** [00-mvp-decisions.md](../00-mvp-decisions.md)
 
 **Target MVP delivery:** ~6 months from charter approval (subject to team availability).
 
@@ -193,3 +195,4 @@ Full mitigation in [Executive Assessment](../00-executive-assessment.md).
 |---------|------|--------|---------|
 | 1.0 | 2026-06-29 | Program Office | Initial charter |
 | 1.1 | 2026-06-29 | Program Office | MSTI pilot institution; stakeholder assignments |
+| 1.2 | 2026-06-30 | Program Office | Phase naming aligned with 00-mvp-decisions |

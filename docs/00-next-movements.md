@@ -168,7 +168,7 @@ Full profile: [DOC-PILOT-001 §0](./01-business/DOC-PILOT-001-government-executi
 | RAG search with citations | Fine-tuned custom LLM |
 | Document review (completeness, format, logic) | Full patent prosecution workflow |
 | Template-based document creation | National-scale knowledge graph |
-| One vertical assistant (Research OR Evaluation) | Mobile app |
+| One vertical assistant (**Evaluation Assistant**) | Mobile app |
 | Role-based access (admin, reviewer, user) | SSO/LDAP (unless pilot requires) |
 | Audit log of AI interactions | Advanced analytics dashboard |
 
@@ -345,7 +345,7 @@ Enter question → Retrieved sources shown → AI answer with citations →
 | Human | 4 FTE × 2.5 weeks (planning + S0) |
 | Hardware | Staging server $3K–$8K |
 | Cost | $2,800 – $11,100 incremental |
-| Backlog | ~199 SP across S0–S6 |
+| Backlog | ~219 SP across S0–S6 |
 
 ### Actions
 
@@ -366,8 +366,8 @@ Enter question → Retrieved sources shown → AI answer with citations →
 | S2 | RAG search | 13–14 | 34 |
 | S3 | Document review | 15–16 | 34 |
 | S4 | Template creation | 17–18 | 34 |
-| S5 | **Evaluation Assistant** ([DOC-504](./06-modules/DOC-504-evaluation-assistant.md)) | 19–20 | 21 |
-| S6 | Hardening + UAT | 21–22 | 21 |
+| S5 | **Evaluation Assistant** | 19–20 | 34 |
+| S6 | Eval completion + hardening + UAT | 21–22 | 28 |
 
 ### Exit criteria (Gate G2)
 
@@ -466,3 +466,4 @@ For the team **now** (post–MSTI profile):
 | 2.0 | 2026-06-29 | Linked MOV-006–011; resources & costs |
 | 2.1 | 2026-06-29 | Government S&T executive office anchor; Evaluation MVP |
 | 2.2 | 2026-06-29 | MSTI profile; MOV-1 progress; DOC-504 sprint link |
+| 2.3 | 2026-06-30 | 219 SP; Evaluation-only scope; link 00-mvp-decisions |

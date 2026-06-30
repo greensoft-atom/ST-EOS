@@ -51,24 +51,25 @@ Discovery & PoC     Pilot Platform      Module Expansion    Platform Scale
 | F-004 RAG search | P0 | Q&A with source citations |
 | F-005 Document review | P0 | Structured review reports |
 | F-006 Template creation | P0 | Generate docs from templates + context |
-| F-007 Vertical assistant | P0 | Research OR Evaluation module |
-| F-008 User roles & auth | P0 | Admin, curator, reviewer, user |
+| F-007 Vertical assistant | P0 | **Evaluation Assistant** (MSTI) |
+| F-008 User roles & auth | P0 | 6 roles per DOC-307 |
 | F-009 Audit log | P0 | AI query/response logging |
 | F-010 Export | P1 | PDF/DOCX export of outputs |
 
-### 3.2 MVP module choice
+### 3.2 MVP module (locked)
 
-| Pilot type | MVP assistant |
-|------------|---------------|
-| Research office | Research Assistant |
-| Grant/exhibition committee | Evaluation Assistant |
+| Pilot | MVP assistant |
+|-------|---------------|
+| MSTI (current) | **Evaluation Assistant** |
+
+Research Assistant: Phase 2B per [ADR-005](../04-architecture/decisions/ADR-005-mvp-module-selection.md).
 
 ### 3.3 Success metrics
 
 - 10,000+ documents indexed
-- 50+ active pilot users
+- **≥ 30** active weekly users (40–70 enrolled)
 - 80% search satisfaction
-- 30% review cycle time reduction
+- 30% committee prep time reduction (W2); see [DOC-PILOT-001 §7](../01-business/DOC-PILOT-001-government-executive-pilot-scope.md)
 
 ---
 
@@ -195,3 +196,4 @@ National federation         ·     ·     ·     ·    ████
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | 2026-06-29 | Initial roadmap |
+| 1.1 | 2026-06-30 | Evaluation-only MVP; KPI alignment with DOC-PILOT-001 |

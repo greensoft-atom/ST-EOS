@@ -221,7 +221,7 @@ Render report → Export optional
 | AI | No external API calls; audit all prompts/responses |
 | Ops | Backup, access logging, admin separation |
 
-Full specification: DOC-306 (planned).
+Full specification: [DOC-306](./DOC-306-security-architecture.md) | RBAC: [DOC-307](./DOC-307-rbac-specification.md)
 
 ---
 
@@ -243,7 +243,7 @@ Full specification: DOC-306 (planned).
 | Frontend | React + TypeScript | Ecosystem, component libraries |
 | Backend | FastAPI (Python) | AI/ML library access |
 | DB | PostgreSQL | Reliable, pgvector option |
-| Vector | Qdrant or pgvector | Evaluate in PoC |
+| Vector | pgvector (PostgreSQL 16) | [ADR-001](./decisions/ADR-001-vector-database.md) |
 | LLM | Ollama/vLLM | Local inference |
 | Queue | Redis + RQ/Celery | Async ingestion |
 | Containers | Docker Compose | Simple on-prem deploy |
@@ -254,12 +254,13 @@ Full specification: DOC-306 (planned).
 
 ## 10. Open Architecture Decisions
 
-| ADR | Question | Target date |
-|-----|----------|-------------|
-| ADR-001 | Qdrant vs pgvector | PoC week 2 |
-| ADR-002 | Ollama vs vLLM | PoC week 1 |
-| ADR-003 | Monolith vs microservices | MVP = monolith |
-| ADR-004 | Primary LLM model | PoC benchmark |
+| ADR | Question | Status |
+|-----|----------|--------|
+| [ADR-001](./decisions/ADR-001-vector-database.md) | Qdrant vs pgvector | Accepted — pgvector MVP |
+| [ADR-002](./decisions/ADR-002-llm-runtime.md) | Ollama vs vLLM | Accepted — Ollama MVP |
+| [ADR-003](./decisions/ADR-003-application-structure.md) | Monolith vs microservices | Accepted — monolith |
+| [ADR-004](./decisions/ADR-004-primary-llm-model.md) | Primary LLM model | Proposed — validate PoC |
+| [ADR-005](./decisions/ADR-005-mvp-module-selection.md) | MVP assistant | Accepted — Evaluation |
 
 ---
 

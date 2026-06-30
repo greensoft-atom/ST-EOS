@@ -39,8 +39,8 @@ ST-EOS agents are **not autonomous personas**. They are:
 
 | Agent | Phase | Primary knowledge layers |
 |-------|-------|--------------------------|
-| Research Agent | MVP | Layer 1 (Literature), templates |
-| Evaluation Agent | MVP | Layer 2 (Projects), rubrics, policies |
+| Evaluation Agent | **MVP** | Layer 2 (Projects), rubrics, policies |
+| Research Agent | Phase 2B | Layer 1 (Literature), templates |
 | Patent Agent | Phase 2 | Layer 3 (Patents) |
 | Innovation Agent | Phase 2 | Layer 1, 2 |
 | Planning Agent | Phase 2 | Layer 4, past plans |

@@ -50,8 +50,8 @@ W1   W2   W3   W4   W5   W6   W7   W8
 |------|--------|--------|
 | Task-first UX approved | Pilot user sign-off | 3/3 reviewers approve flows |
 | No chat-only dependency | Core flows use wizards | 100% of P0 features |
-| Screen inventory complete | All MVP screens listed | ≥ 24 screens mapped |
-| Role alignment | Access matrix documented | 4 roles × all screens |
+| Screen inventory complete | All MVP screens listed | ≥ **34** screens mapped |
+| Role alignment | Access matrix documented | 6 roles × all screens ([DOC-307](../04-architecture/DOC-307-rbac-specification.md)) |
 | Dev-ready handoff | Annotated wireframes | Frontend can estimate sprints |
 
 ---
@@ -248,19 +248,90 @@ ST-EOS Portal
 
 ---
 
-## 9. Secondary Flows (MVP — lighter design)
+## 9. Core Flow 3 — Evaluation (W2) — MVP Differentiator
+
+**Priority:** P0 — equal to Flows 1 and 2. Full screen list: [DOC-504 §10](../06-modules/DOC-504-evaluation-assistant.md).
+
+### 9.1 Flow diagram
+
+```text
+┌─────────────┐
+│  Dashboard  │
+└──────┬──────┘
+       │ click "Run Evaluation"
+       ▼
+┌─────────────────────┐
+│ Step 1: New eval    │  Select campaign + rubric
+└──────────┬──────────┘
+           ▼
+┌─────────────────────┐
+│ Step 2: Submissions │  Pick 1–20 docs (RESTRICTED)
+└──────────┬──────────┘
+           ▼
+┌─────────────────────┐
+│ Step 3: Processing  │  Per-submission progress (batch)
+└──────────┬──────────┘
+           ▼
+┌─────────────────────┐
+│ Step 4: Scorecard   │  Criterion scores + evidence [n]
+└──────────┬──────────┘
+           ▼
+┌─────────────────────┐
+│ Step 5: Compare     │  Matrix (if N > 1) + ranked list
+└──────────┬──────────┘
+           ▼
+┌─────────────────────┐
+│ Step 6: Review edit │  committee_reviewer overrides
+└──────────┬──────────┘
+           ▼
+┌─────────────────────┐
+│ Step 7: Approve     │  committee_chair sign-off
+└──────────┬──────────┘
+           ▼
+┌─────────────────────┐
+│ Step 8: Export      │  Committee packet PDF/DOCX
+└─────────────────────┘
+```
+
+### 9.2 Screen list — Flow 3
+
+| Screen ID | Name | Key elements |
+|-----------|------|--------------|
+| SCR-E01 | Evaluation home | Campaign list, recent runs |
+| SCR-E02 | New evaluation wizard | Rubric → submissions → options |
+| SCR-E03 | Processing | Batch progress per submission |
+| SCR-E04 | Scorecard | Criterion scores, evidence expand |
+| SCR-E05 | Comparison matrix | Side-by-side N submissions |
+| SCR-E06 | Ranking view | Ordered list + justification |
+| SCR-E07 | Reviewer edit | Override score + comment |
+| SCR-E08 | Approval gate | Chair sign-off |
+| SCR-E09 | Export dialog | PDF/DOCX committee packet |
+| SCR-E10 | Rubric manager | Curator CRUD |
+
+### 9.3 UX rules (evaluation)
+
+| Rule | Rationale |
+|------|-----------|
+| Banner: "AI advisory — human approval required" | Legal / policy |
+| Export disabled until approved | [DOC-307](../04-architecture/DOC-307-rbac-specification.md) |
+| Show evidence per criterion | Fairness, audit |
+| Flag low-confidence scores | Corpus gaps |
+
+---
+
+## 10. Secondary Flows (MVP — lighter design)
 
 | Flow | Entry | Screens | Priority |
 |------|-------|---------|----------|
 | Repository browse | Knowledge → Repository | 3 | P0 |
 | Upload document | Repository → Upload | 2 | P0 |
-| Assistant task | Assistant → task picker | 4 | P0 |
+| Assistant task | Assistant → Evaluation (Flow 3) | 10 | P0 |
 | Admin users | Admin → Users | 2 | P1 |
 | Audit log view | Admin → Audit | 1 | P1 |
 
 ---
 
-## 10. Dashboard Wireframe (ASCII)
+## 11. Dashboard Wireframe (ASCII)
 
 ```text
 ┌────────────────────────────────────────────────────────────────────┐
@@ -282,7 +353,7 @@ ST-EOS Portal
 
 ---
 
-## 11. Role × Screen Access Matrix
+## 12. Role × Screen Access Matrix
 
 | Screen / Action | Admin | Curator | Reviewer | User |
 |-----------------|-------|---------|----------|------|
@@ -302,7 +373,7 @@ ST-EOS Portal
 
 ---
 
-## 12. Component Library Alignment
+## 13. Component Library Alignment
 
 Use consistent components across flows (maps to shadcn/ui or equivalent):
 
@@ -319,7 +390,7 @@ Use consistent components across flows (maps to shadcn/ui or equivalent):
 
 ---
 
-## 13. Day-by-Day Schedule
+## 14. Day-by-Day Schedule
 
 | Day | Activity | Output |
 |-----|----------|--------|
@@ -336,7 +407,7 @@ Use consistent components across flows (maps to shadcn/ui or equivalent):
 
 ---
 
-## 14. Deliverables Checklist
+## 15. Deliverables Checklist
 
 | # | Deliverable | Format | Owner |
 |---|-------------|--------|-------|
@@ -351,7 +422,7 @@ Use consistent components across flows (maps to shadcn/ui or equivalent):
 
 ---
 
-## 15. Risks & Mitigations
+## 16. Risks & Mitigations
 
 | ID | Risk | Likelihood | Impact | Mitigation |
 |----|------|------------|--------|------------|
@@ -363,7 +434,7 @@ Use consistent components across flows (maps to shadcn/ui or equivalent):
 
 ---
 
-## 16. Exit Criteria (Gate G2 input)
+## 17. Exit Criteria (Gate G2 input)
 
 - [ ] Flow 1 and Flow 2 wireframes approved by sponsor
 - [ ] 3 pilot users reviewed prototype; feedback incorporated
@@ -374,7 +445,7 @@ Use consistent components across flows (maps to shadcn/ui or equivalent):
 
 ---
 
-## 17. Handoff to Development
+## 18. Handoff to Development
 
 Frontend Sprint mapping:
 
@@ -385,8 +456,8 @@ Frontend Sprint mapping:
 | Sprint 2 | SCR-S01–S04 (search) |
 | Sprint 3 | SCR-R01–R07 (review) |
 | Sprint 4 | SCR-S05–S09 (create) |
-| Sprint 5 | Assistant screens |
-| Sprint 6 | Admin, audit, polish |
+| Sprint 5 | SCR-E01–E06 (evaluation core) |
+| Sprint 6 | SCR-E07–E10 + admin, audit, polish |
 
 ---
 
@@ -404,3 +475,4 @@ Frontend Sprint mapping:
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | 2026-06-29 | Initial detailed movement doc |
+| 1.1 | 2026-06-30 | Flow 3 Evaluation; 6-role RBAC; DOC-307 alignment |

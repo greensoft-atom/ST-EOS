@@ -1,10 +1,11 @@
 # DOC-702 — Sprint Plan (MVP Backlog)
 
 **Document ID:** DOC-702  
-**Version:** 1.0  
-**Date:** 2026-06-29  
+**Version:** 2.0  
+**Date:** 2026-06-30  
 **Sprints:** S0–S6 (14 weeks)  
-**Status:** Draft
+**Status:** Approved for build  
+**Locked decisions:** [00-mvp-decisions.md](../00-mvp-decisions.md) | **Module:** Evaluation Assistant only
 
 ---
 
@@ -12,17 +13,18 @@
 
 Assuming Phase 0 ends Week 8; Sprint 0 starts Week 9:
 
-| Sprint | Dates (example) | Week | Goal | SP |
-|--------|-----------------|------|------|-----|
-| S0 | Jul 28 – Aug 8 | 9–10 | Foundation | 21 |
-| S1 | Aug 11 – Aug 22 | 11–12 | Repository + ingestion | 34 |
-| S2 | Aug 25 – Sep 5 | 13–14 | RAG search | 34 |
-| S3 | Sep 8 – Sep 19 | 15–16 | Document review | 34 |
-| S4 | Sep 22 – Oct 3 | 17–18 | Document creation | 34 |
-| S5 | Oct 6 – Oct 17 | 19–20 | Department assistant | 21 |
-| S6 | Oct 20 – Oct 31 | 21–22 | Hardening + UAT | 21 |
+| Sprint | Week | Goal | SP |
+|--------|------|------|-----|
+| S0 | 9–10 | Foundation + 6-role RBAC | 21 |
+| S1 | 11–12 | Repository + ingestion | 34 |
+| S2 | 13–14 | RAG search | 34 |
+| S3 | 15–16 | Document review | 34 |
+| S4 | 17–18 | Template creation | 34 |
+| S5 | 19–20 | Evaluation Assistant (core) | 34 |
+| S6 | 21–22 | Evaluation completion + hardening + UAT | 28 |
+| **Total** | | | **219** |
 
-*Adjust dates to actual kickoff.*
+*Velocity target: 20–22 SP/sprint. S5–S6 carry Evaluation scope per [DOC-504](../06-modules/DOC-504-evaluation-assistant.md).*
 
 ---
 
@@ -32,27 +34,26 @@ Assuming Phase 0 ends Week 8; Sprint 0 starts Week 9:
 |-----------|-------|
 | Team size (dev) | 3–4 |
 | Sprint length | 2 weeks |
-| Target velocity | 18–22 SP |
-| Total MVP scope | ~199 SP |
+| Target velocity | 20–22 SP |
+| Total MVP scope | **219 SP** |
 
 ---
 
 ## 3. Sprint 0 — Foundation (21 SP)
 
-| ID | Story | SP | Assignee | Depends |
-|----|-------|-----|----------|---------|
-| S0-01 | Monorepo + Docker Compose all services | 3 | DevOps | — |
-| S0-02 | PostgreSQL + Alembic migrations | 3 | Backend | S0-01 |
-| S0-03 | User model + register seed admin | 2 | Backend | S0-02 |
-| S0-04 | JWT login/logout/refresh | 3 | Backend | S0-03 |
-| S0-05 | RBAC middleware + 4 roles | 5 | Backend | S0-04 |
-| S0-06 | Audit log model + append service | 3 | Backend | S0-02 |
-| S0-07 | Health API + LLM status endpoint | 2 | AI | S0-01 |
-| S0-08 | Frontend: Vite + login + layout | 5 | Frontend | — |
-| S0-09 | Frontend: dashboard shell (MOV-006) | 3 | Frontend | S0-08 |
-| S0-10 | CI: lint, test, build on PR | 2 | DevOps | S0-01 |
-| S0-11 | Staging deploy script | 2 | DevOps | S0-10 |
-| S0-12 | Ollama in compose + smoke test | 2 | AI | S0-07 |
+| ID | Story | SP | Assignee |
+|----|-------|-----|----------|
+| S0-01 | Monorepo + Docker Compose (postgres, redis, ollama) | 3 | DevOps |
+| S0-02 | PostgreSQL + Alembic + pgvector extension | 3 | Backend |
+| S0-03 | User model + JWT login/logout/refresh | 5 | Backend |
+| S0-04 | RBAC middleware — 6 roles ([DOC-307](../04-architecture/DOC-307-rbac-specification.md)) | 5 | Backend |
+| S0-05 | Audit log model + append service (AUD-001–003) | 3 | Backend |
+| S0-06 | Health API + LLM status endpoint | 2 | AI |
+| S0-07 | Frontend: Vite + login + dashboard shell (MOV-006) | 5 | Frontend |
+| S0-08 | CI: lint, test, build on PR | 2 | DevOps |
+| S0-09 | Ollama smoke test + staging deploy script | 3 | DevOps + AI |
+
+**Sprint 0 total: 21 SP**
 
 ---
 
@@ -60,21 +61,20 @@ Assuming Phase 0 ends Week 8; Sprint 0 starts Week 9:
 
 | ID | Story | SP | Assignee |
 |----|-------|-----|----------|
-| S1-01 | POST /documents multipart upload | 5 | Backend |
-| S1-02 | File storage abstraction (local/MinIO) | 3 | Backend |
-| S1-03 | Document metadata model + validation | 3 | Backend |
-| S1-04 | Classification enum on upload (MOV-007) | 3 | Backend |
+| S1-01 | POST /documents multipart upload (50 MB) | 5 | Backend |
+| S1-02 | Filesystem storage abstraction | 3 | Backend |
+| S1-03 | Document metadata + [DOC-603](../07-data/DOC-603-metadata-standard.md) validation | 3 | Backend |
+| S1-04 | Classification required on upload | 3 | Backend |
 | S1-05 | GET /documents list + filters | 3 | Backend |
 | S1-06 | Document upload UI + drag-drop | 5 | Frontend |
 | S1-07 | Document list UI + filters | 5 | Frontend |
 | S1-08 | PDF preview component | 3 | Frontend |
 | S1-09 | Redis + RQ worker setup | 3 | DevOps |
 | S1-10 | PDF text extraction worker | 5 | AI |
-| S1-11 | Chunking pipeline (configurable) | 5 | AI |
-| S1-12 | Embedding + pgvector insert | 5 | AI |
-| S1-13 | Processing status API + UI poll | 2 | BE+FE |
-| S1-14 | Bulk ingest CLI script | 3 | AI |
-| S1-15 | Ingest 2000 docs (curator task) | — | Data |
+| S1-11 | Chunking + embedding + pgvector insert | 5 | AI |
+| S1-12 | Processing status API + UI poll | 2 | BE+FE |
+| S1-13 | Bulk ingest CLI | 3 | AI |
+| S1-14 | Ingest 2000 docs (curator task) | — | Data |
 
 ---
 
@@ -83,17 +83,16 @@ Assuming Phase 0 ends Week 8; Sprint 0 starts Week 9:
 | ID | Story | SP | Assignee |
 |----|-------|-----|----------|
 | S2-01 | POST /search query endpoint | 3 | Backend |
-| S2-02 | Query embedding service | 2 | AI |
-| S2-03 | Vector search + top-K | 3 | AI |
-| S2-04 | RBAC pre-filter on retrieval | 5 | AI |
-| S2-05 | LLM generation with context | 5 | AI |
-| S2-06 | Citation post-processor | 5 | AI |
-| S2-07 | Insufficient evidence threshold | 2 | AI |
-| S2-08 | Search UI (SCR-S01–03) | 8 | Frontend |
-| S2-09 | Metadata filter UI | 3 | Frontend |
-| S2-10 | Audit AUD-006 | 2 | Backend |
-| S2-11 | RAG eval harness CLI | 5 | AI |
-| S2-12 | **QG-1/QG-2 gate** — eval pass | — | QA |
+| S2-02 | Query embedding + vector search top-K | 5 | AI |
+| S2-03 | RBAC pre-filter on retrieval ([DOC-307](../04-architecture/DOC-307-rbac-specification.md)) | 5 | AI |
+| S2-04 | LLM generation with context + citations | 5 | AI |
+| S2-05 | Citation post-processor + source panel API | 5 | AI |
+| S2-06 | Insufficient evidence threshold | 2 | AI |
+| S2-07 | Search UI (SCR-S01–03) | 8 | Frontend |
+| S2-08 | Metadata filter UI | 3 | Frontend |
+| S2-09 | Audit AUD-006 | 2 | Backend |
+| S2-10 | RAG eval harness CLI | 5 | AI |
+| S2-11 | **QG-1/QG-2 gate** — eval pass | — | QA |
 
 ---
 
@@ -103,15 +102,13 @@ Assuming Phase 0 ends Week 8; Sprint 0 starts Week 9:
 |----|-------|-----|----------|
 | S3-01 | POST /reviews job creation | 3 | Backend |
 | S3-02 | Review worker queue | 2 | Backend |
-| S3-03 | Completeness review prompt | 5 | AI |
-| S3-04 | Format review prompt | 3 | AI |
-| S3-05 | Logic review prompt | 5 | AI |
-| S3-06 | Compliance review + policy RAG | 5 | AI |
-| S3-07 | Findings JSON schema + validation | 3 | Backend |
-| S3-08 | Review wizard UI (SCR-R01–07) | 8 | Frontend |
-| S3-09 | Export review PDF/DOCX | 5 | Backend |
-| S3-10 | Audit AUD-007 | 2 | Backend |
-| S3-11 | Review quality test suite | 5 | QA |
+| S3-03 | Completeness + format review prompts | 8 | AI |
+| S3-04 | Logic + compliance review + policy RAG | 8 | AI |
+| S3-05 | Findings JSON schema + validation | 3 | Backend |
+| S3-06 | Review wizard UI (SCR-R01–07) | 8 | Frontend |
+| S3-07 | Export review PDF/DOCX | 5 | Backend |
+| S3-08 | Audit AUD-007 + AUD-016 policy acknowledgment | 3 | Backend |
+| S3-09 | Review quality test suite | 5 | QA |
 
 ---
 
@@ -121,53 +118,51 @@ Assuming Phase 0 ends Week 8; Sprint 0 starts Week 9:
 |----|-------|-----|----------|
 | S4-01 | Template model + YAML loader | 5 | Backend |
 | S4-02 | Template CRUD API (curator) | 3 | Backend |
-| S4-03 | Curator: author 5 templates | — | Data |
-| S4-04 | POST /generate from template | 5 | AI |
-| S4-05 | Creation wizard UI | 8 | Frontend |
+| S4-03 | Curator: author 5 templates (incl. evaluation summary) | — | Data |
+| S4-04 | POST /generate from template + RAG | 8 | AI |
+| S4-05 | Creation wizard UI (SCR-S05–07) | 8 | Frontend |
 | S4-06 | Draft editor (TipTap/MD) | 5 | Frontend |
-| S4-07 | Bibliography generator | 3 | AI |
-| S4-08 | Export draft PDF/DOCX | 5 | Backend |
-| S4-09 | Audit AUD-008, AUD-009 | 2 | Backend |
+| S4-07 | Export draft PDF/DOCX + bibliography | 5 | Backend |
+| S4-08 | Audit AUD-008, AUD-009 | 2 | Backend |
 
 ---
 
-## 8. Sprint 5 — Assistant (21 SP)
+## 8. Sprint 5 — Evaluation Assistant Core (34 SP)
 
-### Track A — Research
+**Track B only** — Research Assistant deferred to Phase 2B ([ADR-005](../04-architecture/decisions/ADR-005-mvp-module-selection.md)).
 
-| ID | Story | SP |
-|----|-------|-----|
-| S5-A01 | Agent config research_assistant | 2 |
-| S5-A02 | Literature review workflow | 5 |
-| S5-A03 | Proposal generation workflow | 5 |
-| S5-A04 | Gap analysis workflow | 5 |
-| S5-A05 | Assistant UI task picker | 5 |
+| ID | Story | SP | Assignee |
+|----|-------|-----|----------|
+| S5-B01 | Rubric model + CRUD API | 5 | Backend |
+| S5-B02 | `score_rubric` tool + evaluation prompts | 5 | AI |
+| S5-B03 | Batch evaluation worker (max 20) + job progress API | 5 | AI + Backend |
+| S5-B04 | Comparison matrix API + UI (SCR-E05) | 5 | BE + FE |
+| S5-B05 | Ranking engine + UI (SCR-E06) | 4 | AI + FE |
+| S5-B06 | Evaluation wizard + scorecard UI (SCR-E01–E04) | 7 | Frontend |
+| S5-B07 | Audit AUD-010 on scoring | 3 | Backend |
+| S5-B08 | Curator: load 2 rubrics + 10 test submissions | — | Data |
 
-### Track B — Evaluation Assistant (Government executive pilot — default)
+**Sprint 5 total: 34 SP**
 
-| ID | Story | SP |
-|----|-------|-----|
-| S5-B01 | Rubric model + CRUD | 5 |
-| S5-B02 | score_rubric tool | 5 |
-| S5-B03 | Single + batch scoring | 5 |
-| S5-B04 | Comparison matrix UI | 5 |
-| S5-B05 | Human approval gate | 3 |
+*Remaining evaluation screens SCR-E07–E10 complete in Sprint 6.*
 
 ---
 
-## 9. Sprint 6 — Hardening (21 SP)
+## 9. Sprint 6 — Evaluation Completion + Hardening (28 SP)
 
-| ID | Story | SP |
-|----|-------|-----|
-| S6-01 | Admin user management UI | 5 |
-| S6-02 | Audit log viewer | 3 |
-| S6-03 | Global error boundaries + toasts | 3 |
-| S6-04 | Performance: embed batch tuning | 3 |
-| S6-05 | OWASP ZAP scan + fixes | 5 |
-| S6-06 | Backup cron + restore test | 3 |
-| S6-07 | User quick-start PDF | 2 |
-| S6-08 | Production docker-compose.prod.yml | 3 |
-| S6-09 | UAT 5 scenarios × 3 users | 5 |
+| ID | Story | SP | Assignee |
+|----|-------|-----|----------|
+| S6-B01 | Reviewer score override UI (SCR-E07) | 5 | Frontend |
+| S6-B02 | Chair approval gate (SCR-E08) | 5 | BE + FE |
+| S6-B03 | Committee packet export PDF/DOCX (SCR-E09) | 5 | Backend |
+| S6-B04 | Rubric manager UI (SCR-E10) | 3 | Frontend |
+| S6-B05 | Evaluation golden test suite (10 submissions) | 1 | QA |
+| S6-01 | Admin user management + audit log viewer | 3 | Frontend |
+| S6-02 | OWASP ZAP scan + backup/restore test #2 | 2 | QA + DevOps |
+| S6-03 | UAT scenarios UAT-01–06 | 2 | PM + QA |
+| S6-04 | Production docker-compose.prod.yml + error UX | 2 | DevOps + FE |
+
+**Sprint 6 total: 28 SP**
 
 ---
 
@@ -175,19 +170,29 @@ Assuming Phase 0 ends Week 8; Sprint 0 starts Week 9:
 
 ```text
 SP
-200 │█
-180 │██
-160 │████
-140 │██████
-120 │████████
-100 │██████████
- 80 │████████████
- 60 │██████████████
- 40 │████████████████
- 20 │██████████████████
-  0 │████████████████████
+220 │█
+200 │██
+180 │████
+160 │██████
+140 │████████
+120 │██████████
+100 │████████████
+ 80 │██████████████
+ 60 │████████████████
+ 40 │██████████████████
+ 20 │████████████████████
+  0 │██████████████████████
     S0  S1  S2  S3  S4  S5  S6
 ```
+
+---
+
+## 11. Removed from MVP Backlog
+
+| Former item | Disposition |
+|-------------|-------------|
+| S5 Track A (Research Assistant) | Phase 2B |
+| Optional PDF preview polish | P1 defer if velocity low |
 
 ---
 
@@ -195,6 +200,8 @@ SP
 
 - [MOV-009](../07-movements/MOV-009-build-mvp-phase1.md)
 - [DOC-701](./DOC-701-development-plan.md)
+- [DOC-504](../06-modules/DOC-504-evaluation-assistant.md)
+- [DOC-205](../03-requirements/DOC-205-traceability-matrix.md)
 
 ---
 
@@ -203,3 +210,4 @@ SP
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | 2026-06-29 | Initial sprint plan |
+| 2.0 | 2026-06-30 | Evaluation-only S5–S6; SP rebalance; 6-role RBAC; total 219 SP |

@@ -77,7 +77,7 @@
 
 ## 4. Authorization (RBAC)
 
-See MOV-007 Section 7. Enforcement points:
+See MOV-007 Section 7 and [DOC-307](../04-architecture/DOC-307-rbac-specification.md). Enforcement points:
 
 ```text
 HTTP Request

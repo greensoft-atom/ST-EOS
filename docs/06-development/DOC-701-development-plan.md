@@ -34,6 +34,7 @@ Define the development approach, **team loading**, **timeline**, **resource requ
 | Methodology | Agile/Scrum, 2-week sprints |
 | MVP scope | Fixed — change control per [MOV-008](../07-movements/MOV-008-mvp-build-sprint0.md) |
 | Architecture | Modular monolith (MVP) |
+| Total backlog | **219 SP** ([DOC-702](./DOC-702-sprint-plan.md)) |
 | Branch strategy | `main` (stable) + `develop` + `feature/*` |
 | Definition of Done | Code reviewed, tested, staged, documented |
 
@@ -194,8 +195,8 @@ Detailed stories: [DOC-702](./DOC-702-sprint-plan.md). Execution guide: [MOV-009
 | S2 | 13–14 | RAG search | 34 | Cited Q&A |
 | S3 | 15–16 | Document review | 34 | Review export |
 | S4 | 17–18 | Template creation | 34 | Draft export |
-| S5 | 19–20 | Assistant | 21 | Full assistant flow |
-| S6 | 21–22 | Hardening + UAT | 21 | MVP sign-off |
+| S5 | 19–20 | Evaluation Assistant (core) | 34 | Full eval scoring + comparison |
+| S6 | 21–22 | Eval completion + hardening + UAT | 28 | Approval, export, UAT |
 
 ### 8.2 Feature delivery map
 
@@ -323,4 +324,4 @@ ST-EOS/
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | 2026-06-29 | Initial development plan |
-| 2.0 | 2026-06-29 | Resources, costs, risks, diagrams, cross-links |
+| 2.0 | 2026-06-30 | 219 SP backlog; Evaluation S5–S6 split |

@@ -134,12 +134,12 @@ Upload & organize documents
     → Search with citations
         → Review documents
             → Create from templates
-                → ONE department assistant
+                → Evaluation Assistant (MSTI pilot)
 ```
 
-**MVP assistant (choose per pilot):**
-- **Research Assistant** — if pilot is research office
-- **Evaluation Assistant** — if pilot is grant/exhibition committee
+**MVP assistant (locked):** **Evaluation Assistant** — grants, programs, exhibitions ([ADR-005](../04-architecture/decisions/ADR-005-mvp-module-selection.md)).
+
+Research Assistant: Phase 2B.
 
 ---
 

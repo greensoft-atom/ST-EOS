@@ -224,6 +224,7 @@ User query → Auth middleware → Build filter:
 | AUD-013 | Classification change | user_id, doc_id, old, new |
 | AUD-014 | Restricted access denied | user_id, doc_id, reason |
 | AUD-015 | Backup completed | job_id, size, status |
+| AUD-016 | AI usage policy acknowledged | user_id, timestamp, policy_version |
 
 ### 8.2 Audit architecture
 
@@ -345,7 +346,8 @@ Backup flow:
 | 4 | Classification required on upload | Backend | S1 |
 | 5 | Retrieval pre-filter by access class | AI/RAG | S2 |
 | 6 | Audit events AUD-001–010 implemented | Backend | S2–S3 |
-| 7 | AI disclaimer on all output screens | Frontend | S3 |
+| 7 | AUD-016 policy acknowledgment | Backend | S3 |
+| 8 | AI disclaimer on all output screens | Frontend | S3 |
 | 8 | Export actions logged | Backend | S4 |
 | 9 | Backup job scheduled | DevOps | S6 |
 | 10 | Restore drill passed | DevOps | S6 |
@@ -397,7 +399,7 @@ Backup flow:
 
 - [MOV-006 UX Workflow](./MOV-006-ux-workflow-design.md)
 - [MOV-008 Sprint 0](./MOV-008-mvp-build-sprint0.md)
-- [Knowledge Base Design DOC-404](../05-ai/DOC-404-knowledge-base-design.md)
+- [DOC-307 RBAC Specification](../04-architecture/DOC-307-rbac-specification.md)
 
 ---
 

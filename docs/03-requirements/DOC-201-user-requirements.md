@@ -91,15 +91,17 @@ This URS captures user-facing requirements for ST-EOS from the perspective of sc
 | URS-044 | The system should perform SWOT analysis on projects | S |
 | URS-045 | The system could support multi-criteria decision analysis | C |
 
-### 3.6 Research services
+### 3.6 Research services (Phase 2B — not MVP)
 
-| ID | Requirement | Priority |
-|----|-------------|----------|
-| URS-050 | The system shall generate literature review summaries from corpus | M |
-| URS-051 | The system shall assist in research proposal creation | M |
-| URS-052 | The system shall suggest methodology based on similar studies | M |
-| URS-053 | The system shall identify research gaps | M |
-| URS-054 | The system should extract and format citations | S |
+| ID | Requirement | Priority (MVP) |
+|----|-------------|----------------|
+| URS-050 | The system shall generate literature review summaries from corpus | C |
+| URS-051 | The system shall assist in research proposal creation | C |
+| URS-052 | The system shall suggest methodology based on similar studies | C |
+| URS-053 | The system shall identify research gaps | C |
+| URS-054 | The system should extract and format citations | C |
+
+*Research Assistant deferred per [ADR-005](../04-architecture/decisions/ADR-005-mvp-module-selection.md). See [DOC-205](./DOC-205-traceability-matrix.md).*
 
 ### 3.7 Innovation & technology scouting
 
@@ -180,12 +182,14 @@ This URS captures user-facing requirements for ST-EOS from the perspective of sc
 
 | Priority | Count |
 |----------|-------|
-| Must (M) | 38 |
+| Must (M) | 34 |
 | Should (S) | 14 |
-| Could (C) | 14 |
+| Could (C) | 18 |
 | Won't (W) | 1 |
 
 **MVP delivery = all Must requirements + maximum Should requirements feasible in timeline.**
+
+*MoSCoW realigned 2026-06-30: Research URS moved to Could for MVP.*
 
 ---
 
@@ -202,7 +206,7 @@ Requirements map to PRD features:
 | URS-050–054 | F-007 (Research) |
 | URS-090–095 | F-008, F-009 |
 
-Full traceability matrix: DOC-205 (planned).
+Full traceability matrix: [DOC-205](./DOC-205-traceability-matrix.md).
 
 ---
 
@@ -211,3 +215,4 @@ Full traceability matrix: DOC-205 (planned).
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | 2026-06-29 | Initial MVP URS |
+| 1.1 | 2026-06-30 | Research services deferred to Phase 2B; DOC-205 linked |

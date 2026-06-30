@@ -20,21 +20,24 @@ AI-powered Science, Technology, Innovation, and Research Management Platform
 
 This documentation set defines the business case, product direction, requirements, architecture, AI design, and execution plan for ST-EOS — with **detailed movement playbooks**, **resource/cost plans**, and **implementation guides**.
 
+**Start with locked decisions:** [00-mvp-decisions.md](./00-mvp-decisions.md) — canonical source when documents disagree.
+
 ---
 
 ## Start Here (Recommended Reading Order)
 
 | Order | Document | Audience |
 |-------|----------|----------|
+| 0 | **[MVP Locked Decisions](./00-mvp-decisions.md)** | All — read first |
 | 1 | [Executive Assessment](./00-executive-assessment.md) | Leadership |
 | 2 | [MSTI Pilot Scope (DOC-PILOT-001)](./01-business/DOC-PILOT-001-government-executive-pilot-scope.md) | Sponsor, PM |
 | 3 | [Stakeholder Analysis (DOC-004)](./01-business/DOC-004-stakeholder-analysis.md) | PM, sponsor |
 | 4 | [Project Charter (DOC-001)](./01-business/DOC-001-project-charter.md) | Sponsors |
 | 5 | [Evaluation Assistant (DOC-504)](./06-modules/DOC-504-evaluation-assistant.md) | AI, engineering |
 | 6 | [Next Movements Playbook](./00-next-movements.md) | PM, leadership |
-| 7 | [Movements Index (MOV-006–011)](./07-movements/README.md) | PM, engineering |
-| 8 | [Resource & Budget (DOC-710)](./06-development/DOC-710-resource-budget-plan.md) | Sponsor, finance |
-| 9 | [Development Plan (DOC-701)](./06-development/DOC-701-development-plan.md) | Engineering |
+| 7 | [Traceability Matrix (DOC-205)](./03-requirements/DOC-205-traceability-matrix.md) | QA, engineering |
+| 8 | [Sprint Plan (DOC-702)](./06-development/DOC-702-sprint-plan.md) | Engineering |
+| 9 | [Resource & Budget (DOC-710)](./06-development/DOC-710-resource-budget-plan.md) | Sponsor, finance |
 
 ---
 
@@ -51,39 +54,22 @@ This documentation set defines the business case, product direction, requirement
 
 ---
 
-## Implementation Documents
+## Key Implementation Documents
 
 | Document | ID | Purpose |
 |----------|-----|---------|
-| [Evaluation Assistant](./06-modules/DOC-504-evaluation-assistant.md) | DOC-504 | Sprint 5 MVP module |
+| [MVP Decisions](./00-mvp-decisions.md) | — | Canonical locked decisions |
+| [SRS](./03-requirements/DOC-202-software-requirements.md) | DOC-202 | Software requirements |
+| [Traceability Matrix](./03-requirements/DOC-205-traceability-matrix.md) | DOC-205 | URS → SRS → sprints |
+| [RBAC Specification](./04-architecture/DOC-307-rbac-specification.md) | DOC-307 | 6 roles, permissions |
+| [Architecture Decisions](./04-architecture/decisions/README.md) | ADR-001–005 | Stack & module choices |
+| [Business Process Mapping](./01-business/DOC-005-business-process-mapping.md) | DOC-005 | W1–W3 AS-IS/TO-BE |
+| [Metadata Standard](./07-data/DOC-603-metadata-standard.md) | DOC-603 | Ingestion fields |
+| [Evaluation Assistant](./06-modules/DOC-504-evaluation-assistant.md) | DOC-504 | Sprint 5–6 MVP module |
 | [Development Plan](./06-development/DOC-701-development-plan.md) | DOC-701 | Master dev timeline |
-| [Sprint Plan](./06-development/DOC-702-sprint-plan.md) | DOC-702 | Backlog S0–S6 |
+| [Sprint Plan](./06-development/DOC-702-sprint-plan.md) | DOC-702 | Backlog S0–S6 (219 SP) |
 | [Testing Strategy](./06-development/DOC-706-testing-strategy.md) | DOC-706 | QA + AI eval |
 | [Resource & Budget](./06-development/DOC-710-resource-budget-plan.md) | DOC-710 | FTE, HW, costs |
-| [Security Architecture](./04-architecture/DOC-306-security-architecture.md) | DOC-306 | Security design |
-| [Data Classification](./07-data/DOC-602-data-classification.md) | DOC-602 | Gov data policy |
-| [AI Usage Policy](./09-enterprise/AI-USAGE-POLICY.md) | — | Pilot user policy |
-| [Deployment Guide](./08-operations/DOC-801-deployment-guide.md) | DOC-801 | Production install |
-| [Disaster Recovery](./08-operations/DOC-804-disaster-recovery.md) | DOC-804 | Backup/restore |
-
----
-
-## Document Hierarchy
-
-| Level | Focus | Status |
-|-------|-------|--------|
-| L0 | Executive & Strategic | ✅ |
-| L1 | Business & Strategy (incl. DOC-PILOT-001) | ✅ |
-| L2 | Product | ✅ MVP set |
-| L3 | Requirements | ✅ MVP set |
-| L4 | Architecture + Security | ✅ |
-| L5 | AI Design | ✅ |
-| L6 | Development + Budget + Modules | ✅ |
-| L7 | Movements (MOV-006–011) | ✅ |
-| L8 | Operations | ✅ Pilot set |
-| L9 | Enterprise / Governance | ✅ AI policy |
-
-Full register: [DOCUMENT-REGISTER.md](./DOCUMENT-REGISTER.md)
 
 ---
 
@@ -113,7 +99,8 @@ Knowledge Repository → RAG Search → Document Review
 
 | Item | State |
 |------|-------|
-| Documentation | ~93% of MVP minimum set (32 docs created) |
+| Documentation | **MVP minimum set 14/14 (100%)** — 42 docs total |
+| Consolidation | **2026-06-30** — audit fixes applied |
 | MSTI pilot profile | Filled ([DOC-PILOT-001 v1.2](./01-business/DOC-PILOT-001-government-executive-pilot-scope.md)) |
 | Formal MOU / DG sign-off | Pending |
 | Codebase | Pre-development (Phase 0) |
@@ -124,6 +111,6 @@ Knowledge Repository → RAG Search → Document Review
 
 | Field | Value |
 |-------|-------|
-| Documentation version | 0.2.2 |
-| Last updated | 2026-06-29 |
+| Documentation version | 0.4.0 |
+| Last updated | 2026-06-30 |
 | Root readme | [`../readme.md`](../readme.md) |

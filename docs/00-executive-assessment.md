@@ -268,6 +268,7 @@ Once that trust exists, department assistants and multi-agent executive workflow
 The documents in this repository translate that strategy into charter, requirements, architecture, and an ordered execution plan.
 
 **Read next:**
+- [MVP Locked Decisions](./00-mvp-decisions.md)
 - [Next Movements Playbook](./00-next-movements.md)
 - [MSTI Pilot Scope (DOC-PILOT-001)](./01-business/DOC-PILOT-001-government-executive-pilot-scope.md)
 - [Document Register](./DOCUMENT-REGISTER.md)

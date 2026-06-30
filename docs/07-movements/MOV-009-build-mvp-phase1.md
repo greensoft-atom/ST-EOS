@@ -35,8 +35,8 @@ Week:  9  10  11  12  13  14  15  16  17  18  19  20  21  22
 | M2 RAG live | 14 | Cited Q&A |
 | M3 Review live | 16 | Review export |
 | M4 Creation live | 18 | Template drafts |
-| M5 Assistant live | 20 | Research OR Evaluation |
-| M6 MVP release | 22 | UAT passed → MOV-010 |
+| M5 Assistant live | 20 | Evaluation Assistant (core) |
+| M6 MVP release | 22 | Eval export + UAT → MOV-010 |
 
 ---
 
@@ -87,7 +87,7 @@ Week:  9  10  11  12  13  14  15  16  17  18  19  20  21  22
 | 5+ templates | Sprint 4 | Curator |
 | 50 RAG eval questions | Sprint 2+ | AI lead |
 | 20 review test docs | Sprint 3 | QA + curator |
-| Evaluation rubric OR research prompts | Sprint 5 | Pilot dept |
+| Evaluation rubrics + test submissions | Sprint 5–6 | Pilot dept |
 
 ---
 
@@ -249,69 +249,27 @@ Query → Embed → Vector search (top-20)
 
 ---
 
-### Sprint 5 — Department Assistant (Weeks 19–20)
+### Sprint 5 — Evaluation Assistant Core (Weeks 19–20)
 
-**Track A — Research Assistant**
+**Goal:** Rubric scoring, batch evaluation, comparison, ranking — see [DOC-504](../../06-modules/DOC-504-evaluation-assistant.md) and [DOC-702](../../06-development/DOC-702-sprint-plan.md)
 
-```text
-Research Assistant Tasks
-────────────────────────
-├── Literature review (topic → cited summary)
-├── Proposal generation (params → full draft)
-├── Gap analysis (topic → gap list + sources)
-└── Methodology suggestion (topic → methods + examples)
-```
+**Track B only** — Research Assistant deferred to Phase 2B.
 
-**Track B — Evaluation Assistant**
-
-```text
-Evaluation Assistant Tasks
-──────────────────────────
-├── Configure rubric (criteria + weights)
-├── Score submission (per-criterion + evidence)
-├── Compare submissions (matrix)
-├── Rank list (ordered + justification)
-└── Human approval gate (export blocked until approve)
-```
-
-| Story | SP | Track |
-|-------|-----|-------|
-| S5-01 Task picker UI | 3 | Both |
-| S5-02 Primary workflow | 8 | A or B |
-| S5-03 Secondary workflow | 5 | A or B |
-| S5-04 Tertiary workflow | 5 | A or B |
-| S5-05 Audit + disclaimer | 2 | Both |
-
-**Demo:** End-to-end assistant task with institutional sources
+| Metric | Target |
+|--------|--------|
+| Story points | 34 |
+| Demo | Score batch of 5 submissions with comparison matrix |
 
 ---
 
-### Sprint 6 — Hardening & Pilot Prep (Weeks 21–22)
+### Sprint 6 — Evaluation Completion + Hardening (Weeks 21–22)
 
-**Goal:** Production-like stability, security checklist, UAT
+**Goal:** Approval gate, export, rubric manager, security, UAT
 
-| Workstream | Tasks |
-|------------|-------|
-| Performance | Query caching, batch embed tuning |
-| Security | OWASP scan, checklist 12/12 |
-| Operations | Backup job, restore drill #2 |
-| Documentation | Admin guide draft, user quick-start |
-| UAT | 5 scenarios × 3 champion users |
-| Data | Full MVP corpus 10,000 docs |
-
-| Story | SP | Owner |
-|-------|-----|-------|
-| S6-01 Admin dashboard | 5 | Frontend |
-| S6-02 Audit viewer | 3 | Frontend |
-| S6-03 Error UX | 3 | Frontend |
-| S6-04 Performance | 5 | AI + Backend |
-| S6-05 Security scan fixes | 5 | Tech lead |
-| S6-06 Backup/restore | 3 | DevOps |
-| S6-07 User docs | 3 | PM |
-| S6-08 Deploy package | 3 | DevOps |
-| S6-09 UAT | 5 | QA + PM |
-
-**Exit:** MVP signed off → handoff to [MOV-010](./MOV-010-pilot-deployment.md)
+| Metric | Target |
+|--------|--------|
+| Story points | 28 |
+| Demo | Full W2 with chair approval + committee packet export |
 
 ---
 
@@ -324,8 +282,8 @@ Evaluation Assistant Tasks
 | S2 | 34 | 89 | RAG quality gate |
 | S3 | 34 | 123 | |
 | S4 | 34 | 157 | |
-| S5 | 21 | 178 | |
-| S6 | 21 | 199 | Buffer in S6 |
+| S5 | 34 | 191 | |
+| S6 | 28 | 219 | Eval export + UAT |
 
 **If velocity < 18 SP/sprint:** Drop P1 stories (PDF preview polish, extra templates).
 

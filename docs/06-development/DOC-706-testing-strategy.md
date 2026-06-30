@@ -115,7 +115,8 @@ Each row:
 | UAT-02 | Search with citations | User |
 | UAT-03 | Full document review export | Reviewer |
 | UAT-04 | Create proposal from template | User |
-| UAT-05 | Assistant primary workflow | User |
+| UAT-05 | Assistant primary workflow — **Evaluation batch scoring** | program_officer, committee_reviewer |
+| UAT-06 | Full W2: approve + export committee packet | committee_chair |
 
 ---
 
@@ -134,9 +135,8 @@ Each row:
 
 | Risk | Mitigation |
 |------|------------|
-| AI eval fl flaky | Fixed seed; version lock model |
-| No ground truth | Curator labels eval set in Phase 0 |
 | UAT skipped | Mandatory for M6 sign-off |
+| Eval fl flaky | Fixed seed; version lock model; golden set in S6 |
 
 ---
 
@@ -152,3 +152,4 @@ Each row:
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | 2026-06-29 | Initial testing strategy |
+| 1.1 | 2026-06-30 | UAT-06 evaluation export; eval golden set note |

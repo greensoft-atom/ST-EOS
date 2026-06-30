@@ -42,16 +42,16 @@ Score each candidate 1–5 based on pilot feedback:
 
 | Module | Pilot demand | Corpus ready | Revenue potential | Complexity | Recommended if… |
 |--------|--------------|--------------|-------------------|------------|-----------------|
-| Evaluation Assistant | — | ★★★ | ★★★★ | ★★★ | Research was MVP |
-| Research Assistant | — | ★★★★ | ★★★ | ★★★ | Evaluation was MVP |
+| Evaluation Assistant | — (in MVP) | ★★★ | ★★★★ | ★★★ | Already delivered |
+| Research Assistant | — | ★★★★ | ★★★ | ★★★ | **Default Phase 2B** if planning not priority |
 | Patent Assistant | ★★★ | ★★ | ★★★★★ | ★★★★★ | IP dept engaged |
 | Planning Assistant | ★★★★ | ★★★ | ★★★★ | ★★★ | Executive planning pain |
 | Innovation / Scouting | ★★★ | ★★★ | ★★★ | ★★★★ | Innovation dept lead |
 | Reporting Assistant | ★★★★ | ★★★★ | ★★★ | ★★★ | Dashboard demand |
 
-**Default recommendation after Research MVP pilot:**
-1. Phase 2B → Evaluation Assistant  
-2. Phase 2C → Planning Assistant OR Patent (if corpus ready)
+| Default recommendation after **Evaluation MVP** (MSTI): |
+| 1. Phase 2B → **Planning Assistant** OR **Research Assistant** |
+| 2. Phase 2C → **Patent Assistant** OR Innovation scouting |
 
 ---
 
@@ -145,53 +145,24 @@ Hybrid Search Architecture (Phase 2A)
 
 ## 6. Phase 2B — Second Module (Weeks 39–46)
 
-**Example: Evaluation Assistant** (if Research was MVP)
+**MSTI MVP used Evaluation Assistant.** Phase 2B default options:
 
-### 6.1 Module capabilities
+| Module | When to choose |
+|--------|----------------|
+| **Planning Assistant** | W3 plan drafting demand high in Gate G3 report |
+| **Research Assistant** | Research Programs requests literature/proposal support |
+| **Patent Assistant** | IP liaison engaged; corpus ≥ 2,000 patents |
 
-| Feature | Description |
-|---------|-------------|
-| Rubric builder | Criteria, weights, scoring guides |
-| Batch evaluation | Score N submissions |
-| Comparison matrix | Side-by-side evidence |
-| Ranking engine | Weighted aggregate |
-| Approval workflow | Reviewer sign-off before export |
-| Committee packet export | PDF bundle for meeting |
+### 6.1 Example: Planning Assistant
 
-### 6.2 Module architecture
+| Capability | Output |
+|------------|--------|
+| Strategic plan draft | Annual/quarterly |
+| Roadmap generator | Milestones, KPIs, risks |
+| Resource estimator | Budget breakdown |
+| `generate_roadmap` tool | Integrated |
 
-```text
-Evaluation Assistant
-────────────────────
-User → Select rubric + submissions
-           │
-           ▼
-    For each submission:
-      get_document → RAG (comparables)
-           │
-           ▼
-      score_rubric tool → per-criterion scores
-           │
-           ▼
-    compare_documents → matrix
-           │
-           ▼
-    Rank + justification → Human approve → Export
-```
-
-### 6.3 Sprint 9–10 stories (summary)
-
-| Story | SP |
-|-------|-----|
-| Rubric CRUD API + UI | 8 |
-| Single submission scoring | 8 |
-| Batch scoring worker | 8 |
-| Comparison matrix UI | 5 |
-| Ranking + export | 5 |
-| Approval gate | 3 |
-| Eval quality test suite | 5 |
-
-**Phase 2B exit:** Evaluation module in production at pilot; 2nd workflow metric improved
+**Phase 2B exit:** Second module in production; one additional workflow metric improved.
 
 ---
 
@@ -214,14 +185,13 @@ Choose **one** based on Gate G3 report:
 | Claim structure analysis | 2D |
 | Patent landscape viz | 3 |
 
-### Option B — Planning Assistant
+### Option B — Research Assistant
 
 | Capability | Output |
 |------------|--------|
-| Strategic plan draft | Annual/quarterly |
-| Roadmap generator | Milestones, KPIs, risks |
-| Resource estimator | Budget breakdown |
-| `generate_roadmap` tool | Integrated |
+| Literature review | Cited summary from corpus |
+| Proposal generation | Full draft from template |
+| Gap analysis | Gap list + sources |
 
 ### Option C — Innovation / Technology Scouting (internal first)
 

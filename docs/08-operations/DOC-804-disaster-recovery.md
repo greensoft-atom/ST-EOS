@@ -35,7 +35,7 @@ Daily 02:00 local time
 | PostgreSQL | pg_dump custom format | 30 days |
 | Documents | rsync incremental | 30 days |
 | Config/.env | encrypted copy | 30 days |
-| Vector index | Rebuild from DB + docs | N/A (regenerate) |
+| Vector index | pg_dump + **optional pgvector snapshot** | 30 days |
 
 ---
 
@@ -49,7 +49,10 @@ Daily 02:00 local time
 | 4 | Restore .env | 2 min |
 | 5 | Start stack | 5 min |
 | 6 | Re-run failed ingest jobs if needed | Variable |
-| 7 | Smoke test | 15 min |
+| 7 | **Or** restore pgvector snapshot if available | 15–60 min |
+| 8 | Smoke test | 15 min |
+
+**Note:** Full re-embed of 10,000+ documents may exceed 4-hour RTO. Mitigation: weekly pgvector table snapshot (`pg_dump` includes embeddings) or accept **degraded mode** (review/create up; search down) until re-index completes. See [00-mvp-decisions.md](../00-mvp-decisions.md).
 
 ---
 
@@ -75,3 +78,4 @@ Daily 02:00 local time
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | 2026-06-29 | Initial DR plan |
+| 1.1 | 2026-06-30 | Vector snapshot; realistic RTO note |

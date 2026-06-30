@@ -29,7 +29,7 @@ ST-EOS MVP delivers an institutional knowledge platform with AI-powered search, 
 | F-004 | RAG Search & Q&A | P0 | MVP |
 | F-005 | Document Review | P0 | MVP |
 | F-006 | Document Creation (Templates) | P0 | MVP |
-| F-007 | Department Assistant (1) | P0 | MVP |
+| F-007 | Department Assistant — **Evaluation** | P0 | MVP |
 | F-008 | Authentication & RBAC | P0 | MVP |
 | F-009 | Audit Logging | P0 | MVP |
 | F-010 | Export Outputs | P1 | MVP |
@@ -108,25 +108,17 @@ ST-EOS MVP delivers an institutional knowledge platform with AI-powered search, 
 | FR-006-04 | Users shall edit draft in UI | Rich text or markdown editor |
 | FR-006-05 | System shall support MVP template types | research proposal, review report, meeting minutes, evaluation summary |
 
-### F-007 — Department Assistant (One Module)
+### F-007 — Evaluation Assistant (MVP Module)
 
-**Option A — Research Assistant**
-
-| ID | Requirement | Acceptance criteria |
-|----|-------------|---------------------|
-| FR-007A-01 | Generate literature review outline | Sections with cited sources |
-| FR-007A-02 | Generate research proposal draft | Follows proposal template |
-| FR-007A-03 | Recommend methodology | Based on similar internal reports |
-| FR-007A-04 | Identify research gaps | Gap list with supporting citations |
-
-**Option B — Evaluation Assistant**
+**Locked for MSTI pilot.** Design: [DOC-504](../06-modules/DOC-504-evaluation-assistant.md). Research Assistant deferred to Phase 2B.
 
 | ID | Requirement | Acceptance criteria |
 |----|-------------|---------------------|
-| FR-007B-01 | Score proposal against rubric | Scores per criterion with evidence |
-| FR-007B-02 | Compare multiple submissions | Side-by-side comparison table |
-| FR-007B-03 | Assess feasibility and risk | Structured risk list |
-| FR-007B-04 | Rank submissions | Ordered list with justification |
+| FR-007-01 | Score proposal against rubric | Scores per criterion with evidence |
+| FR-007-02 | Compare multiple submissions | Side-by-side comparison table |
+| FR-007-03 | Assess feasibility and risk | Structured risk list |
+| FR-007-04 | Rank submissions | Ordered list with justification |
+| FR-007-05 | Chair approval required before export | Export blocked until approved |
 
 ### F-008 — Authentication & RBAC
 
@@ -137,16 +129,22 @@ ST-EOS MVP delivers an institutional knowledge platform with AI-powered search, 
 | FR-008-03 | Restricted documents visible only to authorized roles | Access denied without permission |
 | FR-008-04 | Admin shall manage users | CRUD users and roles |
 
-**Role permissions matrix (MVP):**
+**Role permissions matrix (MVP):** See [DOC-307](../04-architecture/DOC-307-rbac-specification.md) — 6 roles including `program_officer`, `committee_reviewer`, `committee_chair`.
+
+Legacy 4-role summary (superseded):
 
 | Action | Admin | Curator | Reviewer | User |
 |--------|-------|---------|----------|------|
 | Upload documents | ✓ | ✓ | ✓ | ✓ |
 | Edit metadata | ✓ | ✓ | · | · |
-| Manage templates | ✓ | ✓ | · | · |
+| Manage templates / rubrics | ✓ | ✓ | · | · |
 | Run AI review | ✓ | ✓ | ✓ | ✓ |
+| Run evaluation | ✓ | · | ✓* | · |
+| Approve evaluation export | ✓ | · | ·** | · |
 | Manage users | ✓ | · | · | · |
 | View audit log | ✓ | · | · | · |
+
+*Program officer and committee roles per DOC-307. **Committee chair only.
 
 ### F-009 — Audit Logging
 
@@ -250,10 +248,10 @@ MVP is accepted when:
 
 | # | Question | Owner | Due |
 |---|----------|-------|-----|
-| Q1 | Research or Evaluation assistant for MVP? | **Evaluation Assistant** (government executive pilot) | Closed |
-| Q2 | Primary UI language? | Pilot institution | Phase 0 W2 |
-| Q3 | SSO required for pilot? | Pilot IT | Phase 0 W4 |
-| Q4 | Maximum document size? | Tech lead | Phase 0 W4 |
+| Q1 | Research or Evaluation assistant for MVP? | **Evaluation Assistant** (MSTI) | Closed |
+| Q2 | Primary UI language? | **English** (MVP) | Closed |
+| Q3 | SSO required for pilot? | Phase 2A default; confirm with MSTI IT Week 4 | Open |
+| Q4 | Maximum document size? | **50 MB** | Closed |
 
 ---
 
@@ -262,3 +260,4 @@ MVP is accepted when:
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | 2026-06-29 | Initial MVP PRD |
+| 1.1 | 2026-06-30 | Evaluation-only F-007; DOC-307 RBAC reference |

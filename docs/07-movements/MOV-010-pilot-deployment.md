@@ -1,7 +1,7 @@
 # MOV-010 — Pilot Deployment & Measurement
 
 **Movement ID:** MOV-010  
-**Phase:** Phase 2 — Pilot  
+**Phase:** Pilot — Deployment & Measurement  
 **Timeline:** Weeks 23–30 (8 weeks)  
 **Owner:** Program Manager + Customer Success lead  
 **Version:** 1.0  
@@ -266,7 +266,7 @@ Low (cosmetic)             → Next sprint / Phase 2
 | # | Criterion | Threshold |
 |---|-----------|-----------|
 | 1 | KPI-01 active users | ≥ 30 |
-| 2 | KPI trust score | ≥ 3.5 |
+| 2 | KPI trust score | ≥ **3.5** (target **3.8** per [DOC-PILOT-001 §7](../01-business/DOC-PILOT-001-government-executive-pilot-scope.md)) |
 | 3 | At least 2/3 workflows hit time target | ≥ 67% |
 | 4 | No unresolved Critical bugs | 0 |
 | 5 | Sponsor written approval | Yes |
@@ -328,7 +328,7 @@ Low (cosmetic)             → Next sprint / Phase 2
 - [MOV-009 Build MVP](./MOV-009-build-mvp-phase1.md)
 - [MOV-011 Iterate & Expand](./MOV-011-iterate-expand-phase2.md)
 - [DOC-801 Deployment Guide](../08-operations/DOC-801-deployment-guide.md)
-- [DOC-803 User Manual](../08-operations/DOC-803-user-manual.md)
+- User quick-start (Sprint 6 deliverable; full DOC-803 Phase 2)
 
 ---
 
